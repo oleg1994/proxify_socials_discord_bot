@@ -6,10 +6,16 @@ const tiktok = (message: string): string | void => {
   const tiktokVideoIds = [];
   if (!matchesArray) return;
   for (const match of matchesArray) {
-    const [, videoId] = match; //extracts second element from the match
-    tiktokVideoIds.push(videoId);
+    const [fullUrl, videoId] = match; //extracts second element from the match
+    const urlContainsVideoRegex = /\/video\//;
+    const videoParam = "@proxifysocialnetworks/video/";
+    if (urlContainsVideoRegex.test(videoId)) {
+      tiktokVideoIds.push(proxitok + videoId);
+    } else {
+      tiktokVideoIds.push(proxitok + videoParam + videoId);
+    }
   }
-  const formattedString = tiktokVideoIds.map((videoId) => proxitok + videoId).join("\n\n");
+  const formattedString = tiktokVideoIds.map((url) => url).join("\n\n");
   return formattedString;
 };
 

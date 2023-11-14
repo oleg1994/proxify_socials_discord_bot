@@ -1,4 +1,4 @@
-import { proxitok, nitter } from "../constants/urls";
+import { proxitok, nitter, twitterUrl } from "../constants/urls";
 import { tiktokRegex, twitterRegex } from "../constants/regexes";
 
 const tiktok = (message: string): string | void => {
@@ -8,7 +8,7 @@ const tiktok = (message: string): string | void => {
   for (const match of matchesArray) {
     const [fullUrl, videoId] = match; //extracts second element from the match
     const urlContainsVideoRegex = /\/video\//;
-    const videoParam = "@proxifysocialnetworks/video/";
+    const videoParam = "@proxifysocials/video/";
     if (urlContainsVideoRegex.test(videoId)) {
       tiktokVideoIds.push(proxitok + videoId);
     } else {
@@ -25,7 +25,7 @@ const twitter = (message: string): string | void => {
 
   if (matches) {
     for (const match of matches) {
-      nitterUrls.push(match.replace("twitter.com", nitter));
+      nitterUrls.push(match.replace(twitterUrl, nitter));
     }
   }
 

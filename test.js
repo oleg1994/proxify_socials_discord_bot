@@ -10,6 +10,12 @@ const fibonacciSequence = (n) => {
   return arr;
 };
 
-function factorial(n) {}
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    let arr = Array.from(Array(n).keys());
+  }
+}
 
 console.log(fibonacciSequence(7));

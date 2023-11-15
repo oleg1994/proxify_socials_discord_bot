@@ -7,7 +7,7 @@ const client = new discord_js_1.Client({
     intents: [discord_js_1.GatewayIntentBits.Guilds, discord_js_1.GatewayIntentBits.GuildMessages, discord_js_1.GatewayIntentBits.MessageContent],
 });
 client.once(discord_js_1.Events.ClientReady, (c) => {
-    console.log(`Ready! Logged in as ${c.user.tag}`);
+    console.log(`Ready!!!!@ Logged in as ${c.user.tag}`);
 });
 client.on("messageCreate", async (message) => {
     if (!message.author.bot) {
